@@ -1,0 +1,127 @@
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.category-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    padding: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.category-icon {
+    width: 100px;
+    height: 100px;
+    background: var(--light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    overflow: hidden;
+}
+
+.category-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.category-card p {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-top: 5px;
+}
+
+/* Unique Backgrounds for Each Category Card */
+.category-card[data-category="Food & Dining"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60');
+}
+.category-card[data-category="Medicines"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=60');
+}
+.category-card[data-category="Automotive"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=60');
+}
+.category-card[data-category="Services"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://plus.unsplash.com/premium_photo-1664910214915-b89e63fcb72e?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2xlYW5pbmclMjByb29tfGVufDB8fDB8fHww&ixlib=rb-4.1.0&q=60&w=3000');
+}
+.category-card[data-category="Jewellery"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://plus.unsplash.com/premium_photo-1724762183134-c17cf5f5bed2?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z29sZCUyMGpld2VsbGVyeXxlbnwwfHwwfHx8MA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000');
+}
+.category-card[data-category="Clothing"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=800&q=60');
+}
+.category-card[data-category="Beauty Products"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=60');
+}
+.category-card[data-category="Footwear"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=60');
+}
+.category-card[data-category="Groceries"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=60');
+}
+.category-card[data-category="Fruits"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=800&q=60');
+}
+.category-card[data-category="Books"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=800&q=60');
+}
+.category-card[data-category="Pet Food"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://genuinedogfood.com/wp-content/uploads/2025/02/GENUINE-ULTIMATE-NUTRITION-FOR-DOGS-KIBBLE-CLOSE-UP-1.webp');
+}
+.category-card[data-category="Musical Instruments"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1556379118-7034d926d258?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bXVzaWNhbCUyMGluc3RydW1lbnRzfGVufDB8fDB8fHww&ixlib=rb-4.1.0&q=60&w=3000');
+}
+.category-card[data-category="Home Furniture"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=60');
+}
+.category-card[data-category="Bags"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=60');
+}
+.category-card[data-category="Kitchen Products"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a2l0Y2hlbiUyMGNvdW50ZXJ0b3BzfGVufDB8fDB8fHww&ixlib=rb-4.1.0&q=60&w=3000');
+}
+.category-card[data-category="Sports & Fitness"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=60');
+}
+.category-card[data-category="Home Decor"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=60');
+}
+.category-card[data-category="Watches"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=60');
+}
+.category-card[data-category="Organic Veggies & Fruits"] {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=60');
+}
+
+/* Make text readable on background images */
+.category-card[data-category] {
+    background-size: cover;
+    background-position: center;
+}
+
+.category-card[data-category] h3,
+.category-card[data-category] p {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}

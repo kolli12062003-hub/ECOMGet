@@ -1,0 +1,21 @@
+.product-specs {
+    margin-top: 30px;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+}
+.product-specs h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+.spec-item {
+    background-color: #f9fafb;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+.spec-item strong { color: var(--dark); display: block; font-size: 14px; margin-bottom: 2px; }
+.spec-item span { color: var(--gray); }

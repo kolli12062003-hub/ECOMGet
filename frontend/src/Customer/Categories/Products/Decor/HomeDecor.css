@@ -1,0 +1,21 @@
+/* Header Styling for Home Decor section */
+#homedecor .section-title {
+    background: none;
+    text-align: center;
+    margin-top: 0;
+    padding: 25px 0;
+    margin-bottom: 40px;
+}
+
+/* Bold glossy red gradient text with stronger shadow */
+#homedecor .section-title h2 {
+    font-size: 44px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(180deg, #a00000 0%, #b22222 40%, #ff4444 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}

@@ -1,0 +1,11 @@
+.section#groceries .section-title h2 {
+    font-size: 32px;
+    color: var(--dark);
+}
+
+.empty-category-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--gray);
+    padding: 50px 20px;
+}

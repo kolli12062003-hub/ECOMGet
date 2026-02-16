@@ -1,0 +1,207 @@
+/* Generic Vendor List Styles */
+.vendor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.vendor-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.vendor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.vendor-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.vendor-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.vendor-card:hover .vendor-image img {
+    transform: scale(1.05);
+}
+
+.vendor-info {
+    padding: 15px;
+}
+
+.vendor-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.vendor-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.vendor-type {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+
+
+.vendor-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.vendor-distance {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.vendor-items {
+    color: #10b981;
+    font-weight: 500;
+}
+
+/* Hero Section */
+.hero {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.hero-carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Section Styles */
+.section {
+    padding: 40px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.section-title p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.search-results-info {
+    color: #10b981;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+/* Loading and Error Messages */
+.loading-message,
+.error-message,
+.no-results-message {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.loading-message p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.error-message p {
+    font-size: 1.2rem;
+    color: #ef4444;
+}
+
+.no-results-message p {
+    font-size: 1.2rem;
+    color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vendor-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .hero {
+        height: 250px;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .vendor-info h3 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .vendor-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+}

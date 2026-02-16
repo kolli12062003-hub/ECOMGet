@@ -1,0 +1,13 @@
+.vendor-store-page { padding: 20px; }
+.vendor-store-header { margin-bottom: 16px; }
+.header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.vendor-store-header h2 { margin: 0 0 6px 0; }
+.visit-seller-btn { background: #4CAF50; color: white; border: none; padding: 10px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.visit-seller-btn:hover { background: #45a049; }
+.vendor-products-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap: 16px; }
+.vendor-product-card { border: 1px solid #e6e6e6; border-radius: 8px; overflow: hidden; background:#fff; display:flex; flex-direction:column }
+.vendor-product-card img { width:100%; height:150px; object-fit:cover }
+.vendor-product-body { padding:12px; display:flex; flex-direction:column; gap:8px }
+.vendor-product-actions { display:flex; gap:8px; align-items:center }
+.vendor-product-actions .btn { padding:6px 10px }
+.no-products, .loading, .error { padding: 16px; color:#444 }

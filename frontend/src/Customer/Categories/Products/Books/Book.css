@@ -1,0 +1,18 @@
+/* Header Styling for Books section */
+#books .section-title {
+    background: none;
+    text-align: center;
+    margin-top: 0;
+    padding: 25px 0;
+    margin-bottom: 40px;
+}
+
+/* Bold glossy red gradient text with stronger shadow */
+#books .section-title h2 {
+    font-size: 44px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: 'Georgia', serif;
+    color: #b22222;
+}

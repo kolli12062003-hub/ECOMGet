@@ -1,0 +1,46 @@
+/* Styles adapted from other product detail CSS files for consistency */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+:root { --primary:#4a6cfa; --secondary:#ff6b6b; --dark:#2c3e50; --gray:#6c757d; --border:#e1e5eb }
+body { background:#f5f7fb; color:var(--dark); }
+.container { width:100%; max-width:1100px; margin:0 auto; padding:20px; }
+.back-link { display: inline-block; margin-bottom: 20px; color: var(--primary); text-decoration: none; font-weight: 600; }
+.product-detail-container { background:#fff; padding:40px; margin-top:10px; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.08); display:grid; grid-template-columns:1fr 1.2fr; gap:40px }
+.product-images { display:flex; flex-direction:column; gap:15px }
+.main-image img { width:100%; height:400px; object-fit:cover; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.1) }
+.thumbnail-track { display:flex; gap:10px; overflow-x:auto }
+.thumbnail-track img { width:80px; height:80px; object-fit:cover; border-radius:4px; cursor:pointer; border:2px solid transparent; transition:border-color .3s }
+.thumbnail-track img.active, .thumbnail-track img:hover { border-color:var(--primary) }
+.product-details h1 { font-size:32px; font-weight:600; margin-bottom:10px }
+.product-vendor { font-size:16px; color:var(--gray); margin-bottom:20px }
+.product-price { font-size:36px; font-weight:700; color:var(--primary); margin-bottom:20px; display:flex; align-items:center; gap:10px; flex-wrap:wrap }
+.product-description h3 { font-size:20px; margin-bottom:10px; border-bottom:2px solid var(--border); padding-bottom:5px }
+.product-description p { line-height:1.7; color:#555 }
+.product-actions { margin-top:30px; display:flex; gap:15px }
+.btn { display:inline-block; padding:15px 35px; background:var(--secondary); color:#fff; border-radius:50px; text-decoration:none; font-weight:600; transition:all .3s; border:none; font-size:16px; cursor:pointer }
+.btn:hover { transform:translateY(-2px); box-shadow:0 5px 15px rgba(0,0,0,0.15) }
+.go-to-cart { background:var(--primary) }
+.go-to-cart:hover { background:#3a5ce5 }
+.wishlist-heart-btn { background:transparent; border:1px solid var(--border); width:50px; height:50px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:22px; color:var(--gray); cursor:pointer }
+.wishlist-heart-btn:hover { background:#f8f9fa; transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.08) }
+.wishlist-heart-btn.active { background:var(--secondary); color:#fff; border-color:var(--secondary); animation:pop .3s ease-out }
+.product-specs { margin-top:30px; border-top:1px solid var(--border); padding-top:20px }
+.product-specs h3 { font-size:20px; margin-bottom:15px }
+.spec-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:15px }
+.spec-item { background:#f9fafb; padding:10px 15px; border-radius:6px }
+.spec-item strong { color:var(--dark); display:block; font-size:14px; margin-bottom:2px }
+.spec-item span { color:var(--gray) }
+.related-products-section { margin-top:50px }
+.related-products-section h2 { font-size:24px; font-weight:600; margin-bottom:20px; text-align:center }
+.related-product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:20px }
+.related-product-card { background:#fff; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.05); overflow:hidden; transition:all .3s ease; text-decoration:none; color:var(--dark) }
+.related-product-card:hover { transform:translateY(-5px); box-shadow:0 8px 25px rgba(0,0,0,0.1) }
+.related-product-card img { width:100%; height:200px; object-fit:cover }
+.related-product-info { padding:15px }
+.related-product-info h4 { font-size:16px; margin-bottom:5px }
+@media (max-width:768px) { .product-detail-container { grid-template-columns:1fr; padding:20px } .product-details h1 { font-size:26px } .main-image img { height:300px } }
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}

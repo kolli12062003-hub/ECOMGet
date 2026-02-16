@@ -1,0 +1,132 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.login-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-header {
+    margin-bottom: 30px;
+}
+
+.login-header img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.login-header h1 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+
+.role-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.role-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    color: #555;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.role-btn.active {
+    background-color: var(--primary, #4a6cfa);
+    color: white;
+}
+
+.login-form h2 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary, #4a6cfa);
+    box-shadow: 0 0 0 2px rgba(74, 108, 250, 0.2);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: var(--primary, #4a6cfa);
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #3a5ce5;
+}
+
+.toggle-view {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #666;
+}
+
+.toggle-view span {
+    color: var(--primary, #4a6cfa);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.error-message {
+    color: var(--secondary, #ff6b6b);
+    background-color: rgba(255, 107, 107, 0.1);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}

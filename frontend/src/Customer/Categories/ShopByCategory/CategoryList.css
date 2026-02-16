@@ -1,0 +1,239 @@
+/* CategoryList.css - Styles for the Shop by Category section */
+
+/* Main container */
+.section.categories {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Section title */
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #007bff, #28a745);
+  border-radius: 2px;
+}
+
+/* Back button */
+.back-button {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: #5a6268;
+  transform: translateY(-50%) translateX(-2px);
+}
+
+/* Main categories grid */
+.category-grid.main-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Main category cards */
+.main-category-card {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  position: relative;
+  min-height: 200px;
+}
+
+.main-category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border-color: #007bff;
+}
+
+.main-category-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.main-category-card h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 10px 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.main-category-card p {
+  font-size: 16px;
+  color: white;
+  margin: 0;
+  line-height: 1.5;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+/* Category sections */
+.category-section {
+  margin-top: 40px;
+}
+
+.category-section h3 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.category-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: #007bff;
+  border-radius: 1px;
+}
+
+/* Category grid */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .section.categories {
+    padding: 40px 0;
+  }
+
+  .section-title h2 {
+    font-size: 28px;
+  }
+
+  .back-button {
+    position: static;
+    transform: none;
+    margin-bottom: 20px;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .category-grid.main-categories {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .main-category-card {
+    padding: 20px;
+  }
+
+  .main-category-card h3 {
+    font-size: 20px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .category-section h3 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title h2 {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-category-card {
+    padding: 15px;
+  }
+
+  .main-category-card img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .main-category-card h3 {
+    font-size: 18px;
+  }
+
+  .main-category-card p {
+    font-size: 14px;
+  }
+}
