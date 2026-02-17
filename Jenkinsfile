@@ -13,29 +13,38 @@ pipeline {
         stage('Docker Build') {
             steps {
                 sh '''
-                docker compose down || true
-                docker compose build
+                    docker compose down || true
+                    docker compose build
                 '''
             }
         }
 
         stage('Deploy Containers') {
             steps {
-                sh '''
-                docker compose up -d
-                '''
+                withCredentials([
+                    file(credentialsId: 'ecomget-backend-env', variable: 'BACKEND_ENV'),
+                    file(credentialsId: 'ecomget-frontend-env', variable: 'FRONTEND_ENV')
+                ]) {
+                    sh '''
+                        echo "Injecting environment files..."
+                        cp $BACKEND_ENV backend/.env
+                        cp $FRONTEND_ENV frontend/.env
+
+                        echo "Starting containers..."
+                        docker compose up -d
+                    '''
+                }
             }
         }
 
         stage('Verify Deployment') {
             steps {
                 sh '''
-                docker ps
+                    echo "Running Containers:"
+                    docker ps
                 '''
             }
         }
     }
 }
-
-
 
