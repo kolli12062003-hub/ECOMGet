@@ -13,8 +13,11 @@ pipeline {
         stage('Docker Build') {
             steps {
                 sh '''
-                    docker compose down || true
-                    docker compose build
+                echo "Stopping old containers..."
+                docker compose down || true
+
+                echo "Building fresh images..."
+                docker compose build --no-cache
                 '''
             }
         }
@@ -26,12 +29,22 @@ pipeline {
                     file(credentialsId: 'ecomget-frontend-env', variable: 'FRONTEND_ENV')
                 ]) {
                     sh '''
-                        echo "Injecting environment files..."
-                        cp $BACKEND_ENV backend/.env
-                        cp $FRONTEND_ENV frontend/.env
+                    echo "Injecting environment files..."
 
-                        echo "Starting containers..."
-                        docker compose up -d
+                    # Remove old env files if exist
+                    rm -f backend/.env
+                    rm -f frontend/.env
+
+                    # Copy new env files
+                    cp $BACKEND_ENV backend/.env
+                    cp $FRONTEND_ENV frontend/.env
+
+                    # Fix permissions
+                    chmod 644 backend/.env
+                    chmod 644 frontend/.env
+
+                    echo "Starting containers..."
+                    docker compose up -d
                     '''
                 }
             }
@@ -40,8 +53,8 @@ pipeline {
         stage('Verify Deployment') {
             steps {
                 sh '''
-                    echo "Running Containers:"
-                    docker ps
+                echo "Running Containers:"
+                docker ps
                 '''
             }
         }
