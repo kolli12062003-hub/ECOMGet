@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    container_name: ecomm-backend
+    restart: always
+    env_file:
+      - ./backend/.env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build: ./frontend
+    container_name: ecomm-frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "8085:80"
