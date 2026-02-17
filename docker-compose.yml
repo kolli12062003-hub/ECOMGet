@@ -1,14 +1,23 @@
 version: "3.8"
 
 services:
+  mongo:
+    image: mongo:6
+    container_name: ecomm-mongo
+    restart: always
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo_data:/data/db
+
   backend:
     build: ./backend
     container_name: ecomm-backend
     restart: always
     env_file:
       - ./backend/.env
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    depends_on:
+      - mongo
     ports:
       - "5000:5000"
 
@@ -20,3 +29,7 @@ services:
       - backend
     ports:
       - "8085:80"
+
+volumes:
+  mongo_data:
+
