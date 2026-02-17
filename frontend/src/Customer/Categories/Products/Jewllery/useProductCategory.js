@@ -30,7 +30,7 @@ export const useProductCategory = (categoryName, searchQuery) => {
         const fetchProducts = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`http://localhost:5000/api/products/category/${categoryName}`);
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/products/category/${categoryName}`);
                 if (response.ok) {
                     let data = await response.json();
                     setProducts(data);

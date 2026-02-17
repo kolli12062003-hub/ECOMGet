@@ -51,7 +51,7 @@ const FoodAndDining = ({ wishlistItems, onAddToCart, onToggleWishlist, onViewPro
         const fetchProducts = async () => {
             try {
                 setLoading(true);
-                const response = await fetch('http://localhost:5000/api/products/category/Food%20%26%20Dining');
+                const response = await fetch('${process.env.REACT_APP_API_URL}/api/products/category/Food%20%26%20Dining');
                 if (!response.ok) {
                     throw new Error('Failed to fetch products');
                 }

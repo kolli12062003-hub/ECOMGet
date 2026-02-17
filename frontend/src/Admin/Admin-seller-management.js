@@ -14,7 +14,7 @@ const AdminSellerManagement = ({ navigateTo }) => {
   const [selectedSellers, setSelectedSellers] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
 
-  const API_URL = 'http://localhost:5000';
+  const API_URL = '${process.env.REACT_APP_API_URL}';
 
   useEffect(() => {
     fetchData();
@@ -410,7 +410,7 @@ const AdminSellerManagement = ({ navigateTo }) => {
                       )}
                       
                       <img
-                        src={product.image ? (product.image.startsWith('http') ? product.image : `http://localhost:5000/uploads/${product.image}`) : 'https://via.placeholder.com/200x150?text=No+Image'}
+                        src={product.image ? (product.image.startsWith('http') ? product.image : `${process.env.REACT_APP_API_URL}/uploads/${product.image}`) : 'https://via.placeholder.com/200x150?text=No+Image'}
                         alt={product.name}
                         style={styles.productImage}
                         onError={(e) => e.target.src = 'https://via.placeholder.com/200x150?text=No+Img'}
@@ -551,7 +551,7 @@ const AdminSellerManagement = ({ navigateTo }) => {
               {sellerProducts.map(product => (
                 <div key={product._id} style={styles.productCard}>
                   <img
-                    src={product.image ? (product.image.startsWith('http') ? product.image : `http://localhost:5000/uploads/${product.image}`) : 'https://via.placeholder.com/200x150?text=No+Image'}
+                    src={product.image ? (product.image.startsWith('http') ? product.image : `${process.env.REACT_APP_API_URL}/uploads/${product.image}`) : 'https://via.placeholder.com/200x150?text=No+Image'}
                     alt={product.name}
                     style={styles.productImage}
                     onError={(e) => e.target.src = 'https://via.placeholder.com/200x150?text=No+Img'}

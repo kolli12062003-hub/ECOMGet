@@ -24,7 +24,7 @@ const AdminEarnerManagement = ({ navigateTo }) => {
 
   const fetchAllSellers = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/admin/all-sellers');
+      const response = await fetch('${process.env.REACT_APP_API_URL}/api/admin/all-sellers');
       const data = await response.json();
       setAllSellers(data);
     } catch (error) {
@@ -35,7 +35,7 @@ const AdminEarnerManagement = ({ navigateTo }) => {
   const fetchProductEarners = async () => {
     try {
       setEarnersLoading(true);
-      const response = await fetch('http://localhost:5000/api/admin/product-earners');
+      const response = await fetch('${process.env.REACT_APP_API_URL}/api/admin/product-earners');
       const data = await response.json();
       console.log('Product earners data:', data);
       setProductEarners(data.earners || []);
@@ -50,8 +50,8 @@ const AdminEarnerManagement = ({ navigateTo }) => {
     try {
       setLoading(true);
       const endpoint = filter === 'pending'
-        ? 'http://localhost:5000/api/admin/pending-sellers'
-        : 'http://localhost:5000/api/admin/all-sellers';
+        ? '${process.env.REACT_APP_API_URL}/api/admin/pending-sellers'
+        : '${process.env.REACT_APP_API_URL}/api/admin/all-sellers';
 
       const response = await fetch(endpoint);
       const data = await response.json();
@@ -80,7 +80,7 @@ const AdminEarnerManagement = ({ navigateTo }) => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/sellers/${sellerId}/approve`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/sellers/${sellerId}/approve`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' }
       });
@@ -107,7 +107,7 @@ const AdminEarnerManagement = ({ navigateTo }) => {
 
   const confirmRejectSeller = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/sellers/${selectedSeller}/reject`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/sellers/${selectedSeller}/reject`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ rejectionReason })
@@ -137,7 +137,7 @@ const AdminEarnerManagement = ({ navigateTo }) => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/sellers/${sellerId}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/sellers/${sellerId}`, {
         method: 'DELETE'
       });
 

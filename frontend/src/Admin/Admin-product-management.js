@@ -53,7 +53,7 @@ const AdminProductManagement = ({ navigateTo }) => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/categories');
+      const response = await fetch('${process.env.REACT_APP_API_URL}/api/categories');
       if (response.ok) {
         const data = await response.json();
         setCategories(data);
@@ -68,7 +68,7 @@ const AdminProductManagement = ({ navigateTo }) => {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5000/api/admin/products');
+      const response = await fetch('${process.env.REACT_APP_API_URL}/api/admin/products');
       if (response.ok) {
         const data = await response.json();
         setProducts(data);
@@ -86,8 +86,8 @@ const AdminProductManagement = ({ navigateTo }) => {
   const fetchSubcategories = async (category = null) => {
     try {
       const url = category
-        ? `http://localhost:5000/api/products/subcategories?category=${encodeURIComponent(category)}`
-        : 'http://localhost:5000/api/products/subcategories';
+        ? `${process.env.REACT_APP_API_URL}/api/products/subcategories?category=${encodeURIComponent(category)}`
+        : '${process.env.REACT_APP_API_URL}/api/products/subcategories';
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
@@ -178,7 +178,7 @@ const AdminProductManagement = ({ navigateTo }) => {
 
       if (editingCat) {
         // Update category
-        const response = await fetch(`http://localhost:5000/api/admin/categories/${editingCat._id}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/categories/${editingCat._id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
@@ -188,7 +188,7 @@ const AdminProductManagement = ({ navigateTo }) => {
         }
       } else {
         // Create category
-        const response = await fetch('http://localhost:5000/api/admin/categories', {
+        const response = await fetch('${process.env.REACT_APP_API_URL}/api/admin/categories', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
@@ -233,13 +233,13 @@ const AdminProductManagement = ({ navigateTo }) => {
       let response;
       if (editingProd) {
         // Update product
-        response = await fetch(`http://localhost:5000/api/admin/products/${editingProd._id}`, {
+        response = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/products/${editingProd._id}`, {
           method: 'PUT',
           body: formData
         });
       } else {
         // Create product
-        response = await fetch('http://localhost:5000/api/admin/products/upload', {
+        response = await fetch('${process.env.REACT_APP_API_URL}/api/admin/products/upload', {
           method: 'POST',
           body: formData
         });
@@ -260,7 +260,7 @@ const AdminProductManagement = ({ navigateTo }) => {
   const deleteCategory = async (id) => {
     if (window.confirm('Delete category?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/admin/categories/${id}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/categories/${id}`, {
           method: 'DELETE'
         });
         if (response.ok) {
@@ -276,7 +276,7 @@ const AdminProductManagement = ({ navigateTo }) => {
   const deleteProduct = async (id) => {
     if (window.confirm('Delete product?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/admin/products/${id}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/products/${id}`, {
           method: 'DELETE'
         });
         if (response.ok) {
@@ -748,7 +748,7 @@ const AdminProductManagement = ({ navigateTo }) => {
                 />
                 {editingProd && prodFormData.image && typeof prodFormData.image === 'string' && (
                   <div style={{ marginTop: '8px' }}>
-                    <img src={`http://localhost:5000/uploads/${prodFormData.image}`} alt="Current product" style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '8px' }} />
+                    <img src={`${process.env.REACT_APP_API_URL}/uploads/${prodFormData.image}`} alt="Current product" style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '8px' }} />
                   </div>
                 )}
               </label>

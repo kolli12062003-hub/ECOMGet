@@ -35,7 +35,7 @@ const SportsAndFitnessProductDetail = ({ product, onAddToCart, onToggleWishlist,
 
         // Check if image is an uploaded file (contains timestamp like "1234567890-filename.jpg")
         if (image.includes('-') && /^\d+-\w+\./.test(image)) {
-            const uploadPath = `http://localhost:5000/uploads/${image}`;
+            const uploadPath = `${process.env.REACT_APP_API_URL}/uploads/${image}`;
             console.log('Using uploaded image path:', uploadPath);
             return uploadPath;
         }

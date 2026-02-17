@@ -11,7 +11,7 @@ const CartPage = ({ cartItems, onUpdateQuantity, onRemoveFromCart, navigateTo, o
 
   const fetchCartOffers = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/offers');
+      const response = await fetch('${process.env.REACT_APP_API_URL}/api/offers');
       if (response.ok) {
         const offers = await response.json();
         const activeCartOffers = offers.filter(offer => offer.type === 'cart' && offer.isActive);

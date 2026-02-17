@@ -77,7 +77,7 @@ const EarnerDashboard = ({ onLogout, user }) => {
   const fetchEarningsData = async () => {
     try {
       // Fetch seller registration count for this earner
-      const registrationResponse = await fetch(`http://localhost:5000/api/earner/seller-registrations/${user?.email}`);
+      const registrationResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/earner/seller-registrations/${user?.email}`);
       const registrationData = await registrationResponse.json();
       const sellerRegistrationCount = registrationData.count || 0;
 
@@ -110,7 +110,7 @@ const EarnerDashboard = ({ onLogout, user }) => {
 
     setLoadingProfile(true);
     try {
-      const response = await fetch(`http://localhost:5000/api/profile?email=${user.email}&role=Earner`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/profile?email=${user.email}&role=Earner`);
       const data = await response.json();
 
       if (response.ok && data.user) {
@@ -303,7 +303,7 @@ const EarnerDashboard = ({ onLogout, user }) => {
         lon: formData.lon
       });
 
-      const response = await fetch('http://localhost:5000/api/auth/register/seller', {
+      const response = await fetch('${process.env.REACT_APP_API_URL}/api/auth/register/seller', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -403,7 +403,7 @@ const EarnerDashboard = ({ onLogout, user }) => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/profile/update', {
+      const response = await fetch('${process.env.REACT_APP_API_URL}/api/profile/update', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

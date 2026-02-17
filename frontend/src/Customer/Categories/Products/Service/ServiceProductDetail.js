@@ -48,7 +48,7 @@ const ServiceProductDetail = ({ product, onAddToCart, onToggleWishlist, cartItem
     const getImageSrc = (image) => {
         if (!image) return 'https://via.placeholder.com/200x150?text=No+Image';
         if (image.startsWith('http://') || image.startsWith('https://')) return image;
-        if (image.includes('-') && /^\d+-\w+\./.test(image)) return `http://localhost:5000/uploads/${image}`;
+        if (image.includes('-') && /^\d+-\w+\./.test(image)) return `${process.env.REACT_APP_API_URL}/uploads/${image}`;
         return `/IMAGES/${image}`;
     };
 

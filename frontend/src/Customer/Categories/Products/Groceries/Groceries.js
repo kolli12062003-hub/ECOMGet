@@ -27,7 +27,7 @@ const Grocery = ({ wishlistItems, onAddToCart, onToggleWishlist, onViewProduct, 
     const fetchProducts = async () => {
         try {
             setLoading(true);
-            const response = await fetch(`http://localhost:5000/api/products/category/${encodeURIComponent("Groceries")}`);
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/products/category/${encodeURIComponent("Groceries")}`);
             if (response.ok) {
                 const data = await response.json();
                 setProducts(data);

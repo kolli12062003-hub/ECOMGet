@@ -228,7 +228,7 @@ const initialProducts = [
 
 const popularProducts = initialProducts.slice(0, 8);
 
-// const API_URL = 'http://localhost:5000';
+// const API_URL = '${process.env.REACT_APP_API_URL}';
 const API_URL = "http://72.60.219.208:5000";
 
 function App() {

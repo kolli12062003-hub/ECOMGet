@@ -14,7 +14,7 @@ const MedicineCard = ({ product, onAddToCart, onToggleWishlist, isWishlisted, on
     return (
         <div className="product-card" draggable="true" onClick={handleCardClick} style={{cursor: 'pointer'}}>
             <img
-                src={product.image ? (product.image.startsWith('http') ? product.image : (product.image.includes('-') ? `http://localhost:5000/uploads/${product.image}` : `/IMAGES/${product.image}`)) : `https://via.placeholder.com/200x200?text=${product.name ? product.name.replace(/\s/g, '+') : 'No+Image'}`}
+                src={product.image ? (product.image.startsWith('http') ? product.image : (product.image.includes('-') ? `${process.env.REACT_APP_API_URL}/uploads/${product.image}` : `/IMAGES/${product.image}`)) : `https://via.placeholder.com/200x200?text=${product.name ? product.name.replace(/\s/g, '+') : 'No+Image'}`}
                 alt={product.name}
                 className="product-img"
                 onError={handleImageError}

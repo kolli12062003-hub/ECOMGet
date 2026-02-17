@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const API_URL = 'http://localhost:5000/api/admin';
+const API_URL = '${process.env.REACT_APP_API_URL}/api/admin';
 
 const AdminUserManagement = ({ navigateTo }) => {
   const [users, setUsers] = useState([]);

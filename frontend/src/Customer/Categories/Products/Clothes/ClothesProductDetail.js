@@ -44,7 +44,7 @@ const ClothesProductDetail = ({ product, onAddToCart, onToggleWishlist, cartItem
 
         // Check if image is an uploaded file (contains timestamp like "1234567890-filename.jpg")
         if (image.includes('-') && /^\d+-\w+\./.test(image)) {
-            const uploadPath = `http://localhost:5000/uploads/${image}`;
+            const uploadPath = `${process.env.REACT_APP_API_URL}/uploads/${image}`;
             console.log('Using uploaded image path:', uploadPath);
             return uploadPath;
         }
@@ -98,7 +98,7 @@ const ClothesProductDetail = ({ product, onAddToCart, onToggleWishlist, cartItem
             const fetchProductDetails = async () => {
                 setLoading(true);
                 try {
-                    const response = await fetch(`http://localhost:5000/api/products/${product._id}`);
+                    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/products/${product._id}`);
                     if (response.ok) {
                         const data = await response.json();
                         setApiProduct(data);

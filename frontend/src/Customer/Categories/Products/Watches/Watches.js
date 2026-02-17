@@ -19,7 +19,7 @@ const WatchCard = ({ product, onAddToCart, onToggleWishlist, isWishlisted, onVie
             return product.image;
         }
         if (product.image.includes('-') && /^\d+-\w+\./.test(product.image)) {
-            return `http://localhost:5000/uploads/${product.image}`;
+            return `${process.env.REACT_APP_API_URL}/uploads/${product.image}`;
         }
         return `/IMAGES/${product.image}`;
     };
@@ -107,7 +107,7 @@ const Watches = ({ wishlistItems, onAddToCart, onToggleWishlist, onViewProduct, 
         const fetchProducts = async (customerLat = null, customerLon = null) => {
             try {
                 setLoading(true);
-                let url = 'http://localhost:5000/api/products/category/Watches';
+                let url = '${process.env.REACT_APP_API_URL}/api/products/category/Watches';
                 if (customerLat && customerLon) {
                     url += `?customerLat=${customerLat}&customerLon=${customerLon}&maxDistance=50`; // 50km radius
                 }

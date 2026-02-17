@@ -33,7 +33,7 @@ const Books = ({ wishlistItems, onAddToCart, onToggleWishlist, onViewProduct, ca
     const fetchProducts = async () => {
         try {
             setLoading(true);
-            const response = await fetch('http://localhost:5000/api/products/category/Books');
+            const response = await fetch('${process.env.REACT_APP_API_URL}/api/products/category/Books');
             if (response.ok) {
                 const data = await response.json();
                 console.log('Fetched Books products:', data);

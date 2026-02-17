@@ -27,7 +27,7 @@ const FoodDineProductDetail = ({ product, onAddToCart, onToggleWishlist, cartIte
         }
         // Check if image is an uploaded file (contains timestamp)
         if (image.includes('-')) {
-            return `http://localhost:5000/uploads/${image}`;
+            return `${process.env.REACT_APP_API_URL}/uploads/${image}`;
         }
         // Otherwise, it's a static image
         return `/IMAGES/${image}`;
@@ -57,7 +57,7 @@ const FoodDineProductDetail = ({ product, onAddToCart, onToggleWishlist, cartIte
         const fetchFoodProducts = async () => {
             try {
                 console.log('🍕 Fetching Food & Dining products for related...');
-                const response = await fetch('http://localhost:5000/api/products/category/Food%20%26%20Dining');
+                const response = await fetch('${process.env.REACT_APP_API_URL}/api/products/category/Food%20%26%20Dining');
                 if (response.ok) {
                     const data = await response.json();
                     console.log('✅ Fetched', data.length, 'Food & Dining products');

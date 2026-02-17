@@ -25,10 +25,10 @@ const VendorStore = ({ vendorName, vendor, sellerId, onViewProduct, onAddToCart,
       try {
         let url;
         if (sellerId) {
-          url = `http://localhost:5000/api/products?sellerId=${sellerId}`;
+          url = `${process.env.REACT_APP_API_URL}/api/products?sellerId=${sellerId}`;
           console.log('📡 Fetching by sellerId:', sellerId);
         } else {
-          url = `http://localhost:5000/api/products`;
+          url = `${process.env.REACT_APP_API_URL}/api/products`;
           console.log('📡 Fetching all products to filter by vendor:', finalVendorName);
         }
         
@@ -73,7 +73,7 @@ const VendorStore = ({ vendorName, vendor, sellerId, onViewProduct, onAddToCart,
   const getImageSrc = (image) => {
     if (!image) return 'https://via.placeholder.com/200x150?text=No+Image';
     if (image.startsWith('http')) return image;
-    if (image.includes('-') && /^\d+-/.test(image)) return `http://localhost:5000/uploads/${image}`;
+    if (image.includes('-') && /^\d+-/.test(image)) return `${process.env.REACT_APP_API_URL}/uploads/${image}`;
     return `/IMAGES/${image}`;
   };
 

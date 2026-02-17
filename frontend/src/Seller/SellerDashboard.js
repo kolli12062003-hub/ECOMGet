@@ -63,7 +63,7 @@ const SellerDashboard = ({ seller, setAllProducts, onLogout, navigateTo }) => {
     const fetchProfile = async () => {
         try {
             console.log('🔄 Refreshing profile data for:', seller.email);
-            const response = await fetch(`http://localhost:5000/api/seller/profile?email=${seller.email}`);
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/seller/profile?email=${seller.email}`);
             if (response.ok) {
                 const sellerData = await response.json();
                 console.log('✅ Profile refresh received:', sellerData);
@@ -87,7 +87,7 @@ const SellerDashboard = ({ seller, setAllProducts, onLogout, navigateTo }) => {
     const handleProfileUpdate = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/api/seller/profile/update', {
+            const response = await fetch('${process.env.REACT_APP_API_URL}/api/seller/profile/update', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -227,7 +227,7 @@ useEffect(() => {
         try {
             // 🔍 FETCH PROFILE DATA IMMEDIATELY
             console.log('🔍 Fetching profile for:', seller.email);
-            const profileResponse = await fetch(`http://localhost:5000/api/seller/profile?email=${seller.email}`);
+            const profileResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/seller/profile?email=${seller.email}`);
             if (profileResponse.ok) {
                 const sellerData = await profileResponse.json();
                 console.log('✅ Profile data received:', sellerData);
@@ -244,7 +244,7 @@ useEffect(() => {
             }
 
             // Fetch products by seller ID
-            const productsResponse = await fetch(`http://localhost:5000/api/products?sellerId=${seller.id}`);
+            const productsResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/products?sellerId=${seller.id}`);
             if (productsResponse.ok) {
                 const contentType = productsResponse.headers.get('content-type');
                 if (contentType && contentType.includes('application/json')) {
@@ -258,7 +258,7 @@ useEffect(() => {
             }
 
             // ⭐ NEW: Fetch branches immediately on load
-            const branchesResponse = await fetch(`http://localhost:5000/api/seller/branches?email=${seller.email}`);
+            const branchesResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/seller/branches?email=${seller.email}`);
             if (branchesResponse.ok) {
                 const branchesData = await branchesResponse.json();
                 setBranches(branchesData);
@@ -304,7 +304,7 @@ useEffect(() => {
 
     const fetchProducts = async () => {
         try {
-            const productsResponse = await fetch(`http://localhost:5000/api/products?sellerId=${seller.id}`);
+            const productsResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/products?sellerId=${seller.id}`);
             if (productsResponse.ok) {
                 const contentType = productsResponse.headers.get('content-type');
                 if (contentType && contentType.includes('application/json')) {
@@ -324,7 +324,7 @@ useEffect(() => {
 
     const fetchOffers = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/offers', {
+            const response = await fetch('${process.env.REACT_APP_API_URL}/api/offers', {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
@@ -341,7 +341,7 @@ useEffect(() => {
 
     const fetchBranches = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/seller/branches?email=${seller.email}`);
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/seller/branches?email=${seller.email}`);
             if (response.ok) {
                 const branches = await response.json();
                 setBranches(branches);
@@ -375,7 +375,7 @@ useEffect(() => {
                 description: formData.description || ''
             };
 
-            const response = await fetch('http://localhost:5000/api/offers', {
+            const response = await fetch('${process.env.REACT_APP_API_URL}/api/offers', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -417,7 +417,7 @@ useEffect(() => {
                 isMain: isMain || false
             };
 
-            const response = await fetch('http://localhost:5000/api/seller/branches', {
+            const response = await fetch('${process.env.REACT_APP_API_URL}/api/seller/branches', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -542,7 +542,7 @@ formDataToSend.append('vendor', fullVendorName);            formDataToSend.appen
                 formDataToSend.append('image', formData.imageFile);
             }
 
-            const response = await fetch('http://localhost:5000/api/products', {
+            const response = await fetch('${process.env.REACT_APP_API_URL}/api/products', {
                 method: 'POST',
                 body: formDataToSend,
             });
@@ -662,7 +662,7 @@ formDataToSend.append('vendor', fullVendorName);        formDataToSend.append('s
             formDataToSend.append('image', formData.imageFile);
         }
 
-        const response = await fetch(`http://localhost:5000/api/products/${formData._id}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/products/${formData._id}`, {
             method: 'PUT',
             body: formDataToSend,
         });
@@ -708,7 +708,7 @@ formDataToSend.append('vendor', fullVendorName);        formDataToSend.append('s
                 isMain: isMain || false
             };
 
-            const response = await fetch(`http://localhost:5000/api/seller/branches/${formData._id}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/seller/branches/${formData._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -791,7 +791,7 @@ formDataToSend.append('vendor', fullVendorName);        formDataToSend.append('s
     const deleteProduct = async (productId, index) => {
         if (window.confirm('Are you sure you want to delete this product?')) {
             try {
-                const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/products/${productId}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
@@ -815,7 +815,7 @@ formDataToSend.append('vendor', fullVendorName);        formDataToSend.append('s
     const deleteBranch = async (branchId) => {
         if (window.confirm('Are you sure you want to delete this branch?')) {
             try {
-                const response = await fetch(`http://localhost:5000/api/seller/branches/${branchId}`, {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/seller/branches/${branchId}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
@@ -1770,7 +1770,7 @@ formDataToSend.append('vendor', fullVendorName);        formDataToSend.append('s
                                                     Current Image:
                                                 </label>
                                                 <img
-                                                    src={`http://localhost:5000/${formData.imageSrc}`}
+                                                    src={`${process.env.REACT_APP_API_URL}/${formData.imageSrc}`}
                                                     alt="Current product"
                                                     style={{ maxWidth: '150px', maxHeight: '150px', borderRadius: '5px', border: '1px solid #ddd' }}
                                                 />

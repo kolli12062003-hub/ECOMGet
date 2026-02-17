@@ -19,7 +19,7 @@ const AdminProfileManagement = ({ navigateTo }) => {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/api/admin/users', {
+        const response = await fetch('${process.env.REACT_APP_API_URL}/api/admin/users', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -33,7 +33,7 @@ const AdminProfileManagement = ({ navigateTo }) => {
             let branches = [];
             if (user.role === 'Seller') {
               try {
-                const branchResponse = await fetch(`http://localhost:5000/api/seller/branches?email=${user.email}`);
+                const branchResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/seller/branches?email=${user.email}`);
                 if (branchResponse.ok) {
                   branches = await branchResponse.json();
                 }
@@ -139,7 +139,7 @@ const AdminProfileManagement = ({ navigateTo }) => {
       if (!selectedUser) return;
 
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/admin/profile/update', {
+      const response = await fetch('${process.env.REACT_APP_API_URL}/api/admin/profile/update', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -264,7 +264,7 @@ const AdminProfileManagement = ({ navigateTo }) => {
     if (!selectedUser || selectedUser.role !== 'Seller') return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/seller/branches?email=${selectedUser.email}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/seller/branches?email=${selectedUser.email}`);
       if (response.ok) {
         const branches = await response.json();
         setUsers(users.map(u => u.id === selectedUser.id ? { ...u, branches } : u));
@@ -281,8 +281,8 @@ const AdminProfileManagement = ({ navigateTo }) => {
     try {
       const method = editingBranch ? 'PUT' : 'POST';
       const url = editingBranch
-        ? `http://localhost:5000/api/seller/branches/${editingBranch._id}`
-        : 'http://localhost:5000/api/seller/branches';
+        ? `${process.env.REACT_APP_API_URL}/api/seller/branches/${editingBranch._id}`
+        : '${process.env.REACT_APP_API_URL}/api/seller/branches';
 
       const response = await fetch(url, {
         method,
@@ -319,7 +319,7 @@ const AdminProfileManagement = ({ navigateTo }) => {
     if (!window.confirm('Are you sure you want to delete this branch?')) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/seller/branches/${branchId}?email=${selectedUser.email}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/seller/branches/${branchId}?email=${selectedUser.email}`, {
         method: 'DELETE',
       });
 

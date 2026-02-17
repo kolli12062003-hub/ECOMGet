@@ -7,7 +7,7 @@ fontLink.rel = 'stylesheet';
 if (!document.querySelector('link[href*="Poppins"]')) document.head.appendChild(fontLink);
 
 // API base (adjust if server runs on different host/port)
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = '${process.env.REACT_APP_API_URL}/api/auth';
 
 const LoginPage = ({ onLoginSuccess = () => {}, onSellerRegister = () => {}, onAdminRegister = () => {} }) => {
     const [isLoginView, setIsLoginView] = useState(true);

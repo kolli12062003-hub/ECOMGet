@@ -17,7 +17,7 @@ const ProfilePage = ({ currentUser, navigateTo, onProfileUpdate }) => {
     // Load profile data from server
     const loadProfile = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/profile?email=${currentUser.details.email}&role=${currentUser.role}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/profile?email=${currentUser.details.email}&role=${currentUser.role}`);
         if (response.ok) {
           const data = await response.json();
           setProfile({
@@ -106,7 +106,7 @@ const ProfilePage = ({ currentUser, navigateTo, onProfileUpdate }) => {
       });
 
       // Save to server
-      const response = await fetch('http://localhost:5000/api/profile/update', {
+      const response = await fetch('${process.env.REACT_APP_API_URL}/api/profile/update', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

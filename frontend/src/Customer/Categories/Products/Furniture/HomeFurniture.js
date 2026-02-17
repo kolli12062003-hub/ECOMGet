@@ -59,7 +59,7 @@ const HomeFurniture = ({
         const fetchProducts = async () => {
             try {
                 setLoading(true);
-                const response = await fetch("http://localhost:5000/api/products/category/Home Furniture");
+                const response = await fetch("${process.env.REACT_APP_API_URL}/api/products/category/Home Furniture");
                 if (!response.ok) throw new Error("Failed to fetch furniture");
 
                 const data = await response.json();

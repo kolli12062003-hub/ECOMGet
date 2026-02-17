@@ -5,7 +5,7 @@ const BeautyProductDetail = ({ product, onAddToCart, onToggleWishlist, cartItems
     const getImageSrc = (image) => {
         if (!image) return 'https://via.placeholder.com/200x150?text=No+Image';
         if (image.startsWith('http://') || image.startsWith('https://')) return image;
-        if (image.includes('-') && /^\d+-\w+\./.test(image)) return `http://localhost:5000/uploads/${image}`;
+        if (image.includes('-') && /^\d+-\w+\./.test(image)) return `${process.env.REACT_APP_API_URL}/uploads/${image}`;
         return `/IMAGES/${image}`;
     };
 
@@ -48,7 +48,7 @@ const BeautyProductDetail = ({ product, onAddToCart, onToggleWishlist, cartItems
     useEffect(() => {
         const fetchRelatedProducts = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/products/category/Beauty Products');
+                const response = await fetch('${process.env.REACT_APP_API_URL}/api/products/category/Beauty Products');
                 if (response.ok) {
                     const data = await response.json();
                     const filtered = data.filter(p => (p._id || p.id) !== (product._id || product.id));

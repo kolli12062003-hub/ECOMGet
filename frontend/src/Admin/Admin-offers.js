@@ -6,7 +6,7 @@ const AdminOffersManagement = ({ navigateTo }) => {
   const [showModal, setShowModal] = useState(false);
   const [editingOffer, setEditingOffer] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const API_URL = 'http://localhost:5000/api/offers';
+  const API_URL = '${process.env.REACT_APP_API_URL}/api/offers';
 
   const [formData, setFormData] = useState({
     type: 'category', // Changed default to category
@@ -24,7 +24,7 @@ const AdminOffersManagement = ({ navigateTo }) => {
 
   const fetchCategories = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/categories');
+      const res = await fetch('${process.env.REACT_APP_API_URL}/api/categories');
       const data = await res.json();
       setCategories(data);
     } catch (error) {

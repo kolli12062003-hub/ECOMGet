@@ -19,7 +19,7 @@ const AutomotiveCard = ({ product, onAddToCart, onToggleWishlist, isWishlisted, 
     return (
         <div className="product-card" draggable="true" onClick={handleCardClick} style={{cursor: 'pointer'}}>
             <img
-                src={product.image && /^\d+-\d+\./.test(product.image) ? `http://localhost:5000/uploads/${product.image}` : `/IMAGES/${product.image}`}
+                src={product.image && /^\d+-\d+\./.test(product.image) ? `${process.env.REACT_APP_API_URL}/uploads/${product.image}` : `/IMAGES/${product.image}`}
                 alt={product.name}
                 className="product-img"
                 onError={handleImageError}

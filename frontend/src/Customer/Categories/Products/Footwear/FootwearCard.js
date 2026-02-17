@@ -25,7 +25,7 @@ const FootwearCard = ({ product, onAddToCart, onToggleWishlist, isWishlisted, on
         }
         // Check if it's an uploaded file (contains timestamp like "1234567890-filename.jpg")
         if (product.image.includes('-') && /^\d+-\w+\./.test(product.image)) {
-            return `http://localhost:5000/uploads/${product.image}`;
+            return `${process.env.REACT_APP_API_URL}/uploads/${product.image}`;
         }
         // Otherwise, it's a static image in IMAGES folder
         return `/IMAGES/${product.image}`;

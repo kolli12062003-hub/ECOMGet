@@ -48,7 +48,7 @@ const SportsAndFitness = ({ wishlistItems, onAddToCart, onToggleWishlist, onView
         const fetchProducts = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`http://localhost:5000/api/products/category/${encodeURIComponent("Sports & Fitness")}`);
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/products/category/${encodeURIComponent("Sports & Fitness")}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch products');
                 }

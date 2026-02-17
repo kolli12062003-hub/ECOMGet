@@ -19,7 +19,7 @@ const JewelleryProductDetail = ({ product, onAddToCart, onToggleWishlist, cartIt
 
         // Check if image is an uploaded file (contains timestamp like "1234567890-filename.jpg")
         if (image.includes('-') && /^\d+-\w+\./.test(image)) {
-            const uploadPath = `http://localhost:5000/uploads/${image}`;
+            const uploadPath = `${process.env.REACT_APP_API_URL}/uploads/${image}`;
             console.log('Using uploaded image path:', uploadPath);
             return uploadPath;
         }
@@ -56,7 +56,7 @@ const JewelleryProductDetail = ({ product, onAddToCart, onToggleWishlist, cartIt
     useEffect(() => {
         const fetchRelatedProducts = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/products/category/Jewellery');
+                const response = await fetch('${process.env.REACT_APP_API_URL}/api/products/category/Jewellery');
                 if (response.ok) {
                     const data = await response.json();
                     const filtered = data.filter(p => (p._id || p.id) !== (product._id || product.id));

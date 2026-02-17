@@ -19,7 +19,7 @@ const ServiceCard = ({ service, onAddToCart, onToggleWishlist, isWishlisted, onV
         }
         // Check if it's an uploaded file (contains timestamp like "1234567890-filename.jpg")
         if (service.image.includes('-') && /^\d+-\w+\./.test(service.image)) {
-            return `http://localhost:5000/uploads/${service.image}`;
+            return `${process.env.REACT_APP_API_URL}/uploads/${service.image}`;
         }
         // Otherwise, it's a static image in IMAGES folder
         return `/IMAGES/${service.image}`;
